@@ -40,6 +40,9 @@ Example:
         $field.keypress(function() {
           $this.hide();
         });
+        $this.unbind().bind('click', function() {
+          $field.focus();
+        });
       }
     });
   }
