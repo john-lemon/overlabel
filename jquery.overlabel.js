@@ -16,9 +16,8 @@ Example:
   function testvalue(input){
     if (input.attr('value') == '') {
       return true;
-    } else {
-      return false;
-    }
+    } 
+    return false;
   }
   jQuery.fn.overlabel = function() {
     this.each(function() {
@@ -29,20 +28,19 @@ Example:
         if ($field.attr('value') !== '') {
           $this.hide();
         }
+        $field.focus(function() {
+          $this.addClass('focus');
+        });
+        $field.blur(function() {
+          $this.removeClass('focus');
+          if (testvalue($field)) {
+            $this.show();
+          }
+        });
+        $field.keypress(function() {
+          $this.hide();
+        });
       }
-      $field.focus(function() {
-        $this.addClass('focus');
-      });
-
-      $field.blur(function() {
-        $this.removeClass('focus');
-        if (testvalue($field)) {
-          $this.show();
-        }
-      });
-      $field.keypress(function() {
-        $this.hide();
-      });
     });
   }
 })(jQuery);
