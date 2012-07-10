@@ -1,6 +1,6 @@
 /*
 Overlabel.
-Version: 0.2 (15.06.2012)
+Version: 0.3 (10.07.2012)
 https://github.com/trolev/overlabel/
 
 Example:
@@ -23,9 +23,9 @@ Example:
     this.each(function() {
       var $this = $(this);
       var $parent = $this.parent();
-      var $field = $parent.find('input');
+      var $field = $('input', $parent);
       if (!$field.length) {
-         var $field = $parent.find('textarea');
+         var $field = $('textarea', $parent);
       }
       if ($field.length) {
         if ($field.attr('value') !== '') {
