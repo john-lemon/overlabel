@@ -16,7 +16,7 @@ Example:
   function testvalue(input){
     if (input.attr('value') == '') {
       return true;
-    } 
+    }
     return false;
   }
   jQuery.fn.overlabel = function() {
@@ -40,12 +40,12 @@ Example:
             $this.show();
           }
         });
-        $field.keypress(function() {
-          $this.hide();
-        });
         $this.unbind().bind('click', function() {
           $field.focus();
         });
+        $field.bind('paste keypress', function() {
+          $this.hide();
+        })
       }
     });
   }
